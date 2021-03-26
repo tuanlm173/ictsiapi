@@ -29,7 +29,6 @@ public class CosmosDbAutoConfiguration extends AbstractCosmosConfiguration {
 
     protected final RequestOptions requestOptions = new RequestOptions();
     private CosmosDbProperties dbProperties;
-
     private AzureKeyCredential azureKeyCredential;
 
     @Autowired
