@@ -1,19 +1,12 @@
 package com.justanalytics.service;
 
 import com.justanalytics.entity.CarrierVisit;
-import com.justanalytics.repository.CarrierVisitRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class CarrierVisitService {
+public interface CarrierVisitService {
 
-    @Autowired
-    CarrierVisitRepository carrierVisitRepository;
+    List<CarrierVisit> getTopTenCarrierVisit();
 
-    public List<CarrierVisit> getCarrierVisit() {
-        return carrierVisitRepository.getTopThreeCarrierVisits();
-    }
+    List<CarrierVisit> getCarrierVisitByTerminalAndDate(String terminalAndDate, Integer top);
 }

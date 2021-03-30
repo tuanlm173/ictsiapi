@@ -1,13 +1,13 @@
 package com.justanalytics.controller;
 
 import com.justanalytics.entity.CarrierVisit;
-import com.justanalytics.response.CollectionResponse;
+import com.justanalytics.response.RestEnvelope;
 import com.justanalytics.service.CarrierVisitService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,9 +22,16 @@ public class DataController {
         this.carrierVisitService = carrierVisitService;
     }
 
-    @GetMapping(path = "/api/v1/getTopCarrierVsit", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<CarrierVisit>> getTopCarrierVisit() {
-        List<CarrierVisit> carrierVisit = carrierVisitService.getCarrierVisit();
-        return new ResponseEntity<>(carrierVisit, HttpStatus.OK);
+    @GetMapping(path = "/api/v1/getTopCarrierVisit", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<RestEnvelope> getTopCarrierVisit() {
+        List<CarrierVisit> topTenCarrierVisit = carrierVisitService.getTopTenCarrierVisit();
+        return ResponseEntity.ok(RestEnvelope.of(topTenCarrierVisit));
+    }
+
+    @GetMapping(path = "/api/v1/getCarrierVisitByTerminalAndDate", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<RestEnvelope> getCarrierVisitByTerminalAndDate(@RequestParam(value = "terminal-date") String terminalAndDate,
+                                                                         @RequestParam(value = "top") Integer top) {
+        List<CarrierVisit> carrierVisitByTerminalAndDate = carrierVisitService.getCarrierVisitByTerminalAndDate(terminalAndDate, top);
+        return ResponseEntity.ok(RestEnvelope.of(carrierVisitByTerminalAndDate));
     }
 }
