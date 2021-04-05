@@ -51,6 +51,35 @@
 			<version>3.0.0-beta.1</version>
 		</dependency>
 
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+			<version>2.4.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>SparkJDBC42</groupId>-->
+<!--			<artifactId>SparkJDBC42</artifactId>-->
+<!--			<scope>system</scope>-->
+<!--			<version>1.0</version>-->
+<!--			<systemPath>C:/Users/Administrator/Desktop/ICTSI/JDBC/SimbaSparkJDBC42-2.6.17.1021/SparkJDBC42.jar</systemPath>-->
+<!--		</dependency>-->
+
+		<dependency>
+			<groupId>SparkJDBC42</groupId>
+			<artifactId>SparkJDBC42</artifactId>
+			<version>2.6.17</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -66,6 +95,28 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>install-Transformation lib</id>
+						<phase>install</phase>
+						<configuration>
+							<file>${basedir}\lib\SimbaSparkJDBC42-2.6.17.1021\SparkJDBC42.jar</file>
+							<repositoryLayout>default</repositoryLayout>
+							<groupId>SparkJDBC42</groupId>
+							<artifactId>SparkJDBC42</artifactId>
+							<version>2.6.17</version>
+							<packaging>jar</packaging>
+							<generatePom>true</generatePom>
+						</configuration>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

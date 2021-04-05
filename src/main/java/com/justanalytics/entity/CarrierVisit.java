@@ -38,6 +38,8 @@ public class CarrierVisit {
     private long atd;
     @JsonProperty(value = "Visit_Phase")
     private String visitPhase;
+    @JsonProperty(value = "terminal_name")
+    private String terminalName;
     @JsonProperty(value = "UniqueKey")
     private String uniqueKey;
     @JsonProperty(value = "job_id")
