@@ -65,18 +65,24 @@
 			<scope>runtime</scope>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>SparkJDBC42</groupId>-->
-<!--			<artifactId>SparkJDBC42</artifactId>-->
-<!--			<scope>system</scope>-->
-<!--			<version>1.0</version>-->
-<!--			<systemPath>C:/Users/Administrator/Desktop/ICTSI/JDBC/SimbaSparkJDBC42-2.6.17.1021/SparkJDBC42.jar</systemPath>-->
-<!--		</dependency>-->
-
 		<dependency>
 			<groupId>SparkJDBC42</groupId>
 			<artifactId>SparkJDBC42</artifactId>
-			<version>2.6.17</version>
+			<scope>system</scope>
+			<version>1.0</version>
+			<systemPath>C:/Users/Administrator/Desktop/ICTSI/JDBC/SimbaSparkJDBC42-2.6.17.1021/SparkJDBC42.jar</systemPath>
+		</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>SparkJDBC42</groupId>-->
+<!--			<artifactId>SparkJDBC42</artifactId>-->
+<!--			<version>2.6.17</version>-->
+<!--		</dependency>-->
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
 		</dependency>
 
 
