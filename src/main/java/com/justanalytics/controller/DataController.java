@@ -35,10 +35,5 @@ public class DataController {
         return ResponseEntity.ok(RestEnvelope.of(carrierVisitByTerminalAndDate));
     }
 
-//    @GetMapping(path = "/api/v1/getQueryBasic", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public ResponseEntity<RestEnvelope> getArbitraryQueryForCarrierVisit(@RequestParam(value = "container") String container) {
-//        String query = dataService.prepareQuery(container);
-//        List<Map<String, Object>> results = dataService.getArbitraryQuery(query);
-//        return ResponseEntity.ok(RestEnvelope.of(results));
-//    }
+
 }

@@ -10,9 +10,10 @@
 	</parent>
 	<groupId>com.justanalytics</groupId>
 	<artifactId>ictsiapi</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>ictsiapi</name>
 	<description>ICTSI API</description>
+<!--	<packaging>war</packaging>-->
 	<properties>
 		<java.version>11</java.version>
 		<azure.version>3.0.0</azure.version>
@@ -51,6 +52,16 @@
 			<version>3.0.0-beta.1</version>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-data-jdbc</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>com.microsoft.sqlserver</groupId>-->
+<!--			<artifactId>mssql-jdbc</artifactId>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
+
 
 
 		<dependency>
@@ -59,6 +70,16 @@
 			<version>2.9.2</version>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+<!--		</dependency>-->
 
 	</dependencies>
 
@@ -76,6 +97,35 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>com.microsoft.azure</groupId>
+				<artifactId>azure-webapp-maven-plugin</artifactId>
+				<version>1.11.0</version>
+				<configuration>
+					<schemaVersion>v2</schemaVersion>
+					<resourceGroup>edp-dev-sea-rg-dataplatform</resourceGroup>
+					<appName>ictsi-restapi-test-001</appName>
+					<pricingTier>P1v2</pricingTier>
+					<region>southeastasia</region>
+					<runtime>
+						<os>Windows</os>
+						<javaVersion>java11</javaVersion>
+						<webContainer>java11</webContainer>
+					</runtime>
+					<deployment>
+						<resources>
+							<resource>
+								<directory>${project.basedir}/target</directory>
+								<includes>
+									<include>*.jar</include>
+								</includes>
+							</resource>
+						</resources>
+					</deployment>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 
